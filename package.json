@@ -4,10 +4,19 @@
   "description": "Collection of smart contracts with a client for organization governance",
   "main": "truffle-config.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "contracts": "contracts"
+  },
+  "engines": {
+    "node": ">= 12.3.1",
+    "npm": "6.9.0"
   },
   "scripts": {
-    "test": "jest"
+    "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' test/ solcover.js truffle-config.js",
+    "test": "truffle test",
+    "test:cov": "solidity-coverage",
+    "lint:sol": "solhint contracts/**/*.sol",
+    "lint:js": "eslint test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +29,21 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^2.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-mocha": "^6.2.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "^1.19.1",
+    "solhint": "^2.3.0",
+    "solidity-coverage": "^0.7.1"
   }
 }
